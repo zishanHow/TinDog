@@ -40,7 +40,6 @@ img{
 }
 
 /* feed section */
-
 .feed-img{
     max-width: 530px;
     width: 100%;
@@ -62,6 +61,15 @@ img{
 .date{
     font-weight: 900;
     letter-spacing: 1px;
+}
+
+/* badge section */
+.like-text,
+.nope-text{
+    display: none;
+    width: 233px;
+    top: 120px;
+    position: absolute;
 }
 
 /* Like Dislike section */

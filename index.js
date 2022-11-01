@@ -36,6 +36,9 @@ function newProfiles(){
 }
 
 document.getElementById('decide-box-heart').addEventListener('click', newProfiles)
+document.getElementById('decide-icons-cross').addEventListener('mouseover', function(){
+    console.log("Hello world")
+})
 
 function render(){
     document.getElementById("feed").innerHTML = tinDogs.getFeedHtml() 

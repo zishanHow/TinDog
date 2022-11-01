@@ -1,29 +1,4 @@
-const dogs = [
-    {
-        name: "Rex",
-        avatar: "images/dog-rex.jpg",
-        age: 25,
-        bio: "Art. Literature. Natural wine. Yoga.",
-        hasBeenSwiped: false,
-        hasBeenLiked: false
-    },
-    {
-        name: "Bella",
-        avatar: "images/dog-bella.jpg",
-        age: 43,
-        bio: "Yup, that's my owner. U can meet him if you want",
-        hasBeenSwiped: false,
-        hasBeenLiked: false
-    },
-    {
-        name: "Teddy",
-        avatar: "images/dog-teddy.jpg",
-        age: 30,
-        bio: "How you doin?",
-        hasBeenSwiped: false,
-        hasBeenLiked: false
-    }
-]
+import dogs from './data.js'
 
 class Feed {
     constructor(data){
@@ -44,11 +19,28 @@ class Feed {
         `
     }
 }
+// end of class
+
+function getNewTindogs(){
+    const nextTindogs = dogs.shift()
+    return nextTindogs ? new Feed(nextTindogs) : body
+}
+
+function newProfiles(){
+    if(dogs.length > 0){
+        tinDogs = getNewTindogs()
+        render()
+    } else {
+        console.log("End of profiles")
+    }
+}
+
+document.getElementById('decide-box-heart').addEventListener('click', newProfiles)
 
 function render(){
     document.getElementById("feed").innerHTML = tinDogs.getFeedHtml() 
 }
 
-let tinDogs = new Feed(dogs[1])
+let tinDogs = getNewTindogs()
 
 render()

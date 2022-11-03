@@ -14,11 +14,16 @@ class Feed {
         : `<img id="nope" src="images/badge-nope.png" alt="">`
     }
 
-    getEndHtml(count){
-        
+    getEndmassegeHtml(count){
+        return `
+            <div class="endMessage">
+                <h2>Yo, You loved ${count}</h2>
+                <picture class="">
+                    <img src="images/logo.png" alt="">
+                </picture>
+            </div>
+        `
     }
-
-
 
     getFeedHtml(){
         const {name, avatar, age, bio } = this

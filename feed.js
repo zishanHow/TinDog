@@ -8,6 +8,18 @@ class Feed {
         this.hasBeenSwiped = true
     }
 
+    getRectionHtml(status){
+        return status 
+        ? `<img id="like" src="images/badge-like.png" alt="">` 
+        : `<img id="nope" src="images/badge-nope.png" alt="">`
+    }
+
+    getEndHtml(count){
+        
+    }
+
+
+
     getFeedHtml(){
         const {name, avatar, age, bio } = this
         return `

@@ -64,9 +64,7 @@ img{
 }
 
 /* badge section */
-.like-text,
-.nope-text{
-    display: none;
+.rections img{
     width: 233px;
     top: 120px;
     position: absolute;

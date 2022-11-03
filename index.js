@@ -1,31 +1,52 @@
 import dogs from './data.js'
+import Feed from './feed.js'
 
-// start of class
-class Feed {
-    constructor(data){
-        Object.assign(this, data)
-    }
+let currentDogIndex = 0
+let currentDog = new Feed(dogs[currentDogIndex])
 
-    getFeedHtml(){
-        const {name, avatar, age, bio } = this
-        return `
-            <div class="feed-flex">
-                <img class="feed-img" src="${avatar}" alt="">
+//document.getElementById('decide-box-heart').addEventListener('click', yes)
+//document.getElementById('decide-icons-cross').addEventListener('click', yes)
 
-                <div class="support-text">
-                    <p class="date">${name}, ${age}</p>
-                    <p class="caption">${bio}</p>
-                </div>
-            </div>
-        `
-    }
+render()
+
+function render(){
+    document.getElementById("feed").innerHTML = currentDog.getFeedHtml() 
 }
-// end of class
 
-function getNewTindogs(){
+function getNewDogs(){
+    currentDogIndex +=1
+    currentDog = new Feed(dogs[currentDogIndex])
+    render()
+}
+
+
+document.addEventListener('click', (e)=>{
+    if(e.target.dataset.heart){
+        liked(e.target.dataset.heart)
+    } else if(e.target.dataset.cross){
+        nope(e.target.dataset.cross)
+    }
+})
+
+function liked(like){
+    currentDog.setMatchStatus(true)
+    getNewDogs()
+}
+
+function nope(disLike){
+    currentDog.hasBeenSwiped = true
+    getNewDogs()
+}
+
+
+
+// before 
+
+/* function getNewTindogs(){
     const nextTindogs = dogs.shift()
-    return nextTindogs ? new Feed(nextTindogs) : body
+    return nextTindogs ? new Feed(nextTindogs) : {}
 }
+document.getElementById('decide-box-heart').addEventListener('click', newProfiles)
 
 function newProfiles(){
     if(dogs.length > 0){
@@ -36,7 +57,14 @@ function newProfiles(){
     }
 }
 
-document.getElementById('decide-box-heart').addEventListener('click', newProfiles)
+function yes(){
+    getNewTindogs().setMatchStatus(true)
+    newProfiles()
+}
+console.log( yes() )
+
+
+
 
 function render(){
     document.getElementById("feed").innerHTML = tinDogs.getFeedHtml() 
@@ -44,4 +72,4 @@ function render(){
 
 let tinDogs = getNewTindogs()
 
-render()
+render() */

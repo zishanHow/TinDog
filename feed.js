@@ -17,7 +17,7 @@ class Feed {
     getEndmassegeHtml(count){
         return `
             <div class="endMessage">
-                <h2>Yo, You loved ${count}</h2>
+                <h2>Yo, You loved ${count + 1}</h2>
                 <picture class="">
                     <img src="images/logo.png" alt="">
                 </picture>

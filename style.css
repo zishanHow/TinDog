@@ -1,174 +1,142 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
 }
 
 body{
-    background-color: beige;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 100%;
 }
 
 .container{
-    width: 550px;
+    width: 100%;
     margin: 0 auto;
-    border-radius: 10px;
     background: linear-gradient(180deg, #FFFFFF 0%, #F6F7FB 100%);
+    box-shadow: 0px 0px 1px black;
+}
+@media (min-width: 551px){
+    .container{
+        width: 550px;
+    }
 }
 
 img{
     width: 100%;
 }
-/* ======================
-          Layout
-   ====================== */  
-/* Header Layout Styles. */
-.header-flex{
-    display: flex;
-    justify-content: space-between;
-    height: 81px;
-    padding: 0 .5em;
-}
-.header-icons{
-    width: 34px;
-    align-self: center;
-}
-.header-feed-icons{
-    width: 84px;
-    align-self: center;
-}
 
-/* feed section */
-.feed-img{
-    max-width: 530px;
-    width: 100%;
-    border-radius: 10px;
-}
-
-.feed-flex{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.support-text{
-    align-self: flex-start;
-    margin-top: -4em;
-    padding-left: 1em;
-    color: white;
-}
-
-.date{
-    font-weight: 900;
-    letter-spacing: 1px;
-}
-
-/* badge section */
-.rections img{
-    width: 233px;
-    top: 120px;
-    position: absolute;
-    padding-left: 1.5em;
-}
-
-/* Like Dislike section */
-.like-dislike{
-    margin: 1.5em 0;
-}
-.decide-flex{
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-}
-/* .decide-icons{
-    margin-top: 2em;
-    align-self: center;
-} */
-.decide-box{
-    width: 92px;
-    height: 92px;
-    background-color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.decide-box:hover,
-.decide-box:focus{
-    background-color: #DBFFF4;
-}
-
-.cross{
-    width: 25.88px;
-    align-self: center;
-}
-.heart{
-    align-self: center;
-    width: 40.86px;
-}
-
-/* ======================
-        END Massage
-   ===================== */
-
-.endMessage {
-    background-color: rgb(68, 179, 68);
-}
-.endMessage h2 {
-    text-align: center;
-    padding: 2em 0;
-}
-
-.endMessage picture {
-    display: flex;
-    justify-content: center;
-}
-
-.endMessage picture img{
-    width: 120px;
-    padding-bottom: 2em;
-}
-
-/* ======================
-        chat section
-   ====================== */
-
-.chat-con{
-    width: 100%;
-    height: 100vh;
-}
-
-.message {
-    position: absolute;
-    width: 550px;
-    top: 85px;
-}
-
-.chat-person{
-    display: flex;
-    gap: 1em;
-    padding: 1.5em 0;
-    padding-left: 1em;
-    margin-bottom: .5em;
-    background-color: rgb(247, 243, 255);
-    box-shadow: 0px 0px 2px black;
-    border-radius: 8px;
-}
-
-.chap-profiles{
-    width: 5em;
-    height: 5em;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.chat-name{
-    padding-top: .5em;
+/* ====================
+     Start typography 
+   ====================*/
+.about-dog .date{
     font-size: 1.5rem;
     font-weight: 900;
     letter-spacing: 1px;
 }
-
-.chat-message {
-    font-size: 1.2rem;
+.about-dog .caption {
+    font-size: 1.3rem;
 }
+/* ====================
+     End typography 
+   ====================*/
+
+/* ======================
+        Start header 
+   ====================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em;
+}
+
+header img {
+    align-self: center;
+    width: 34px;
+}
+
+header .logo {
+    width: 84px;
+}
+/* End header */
+
+
+/* ======================
+        Start main 
+   ====================== */
+
+/* start feed section */
+.feed{
+    margin: 0 .8em;
+    padding-top: .5em;
+}
+
+.feed img{
+    border-radius: 15px;
+}
+
+.feed .about-dog {
+    color: white;
+    margin-top: -7em;
+    margin-left: 1.5em;
+}
+
+/* feed end message */
+.end-message{
+    font-size: 1.5rem;
+    text-align: center;
+    padding: .5em;
+    min-height: 400px;
+    background-color: rgb(227, 244, 227);
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.end-message p {
+    font-weight: 700;
+    color: red;
+}
+.end-message img {
+    width: 120px;
+}
+
+/* End feed section */
+
+/* Start reaction section */
+.reactions{
+    max-width: 233px;
+    width: 40%;
+    position: absolute;
+    margin-left: 3.5em;
+    top: 9.5em;
+    transform: rotate(-20deg);
+}
+#like,
+#nope {
+    position: inherit;
+}
+/* End reaction section */
+
+/* Start choose section */
+.choose{
+    padding-top: 3em;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    box-sizing: content-box;
+}
+.choose img{
+    padding: 1.5em;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.choose img:hover,
+.choose img:focus{
+    background-color: #DBFFF4;
+}
+/* End Choose section */

@@ -13,26 +13,23 @@ class Feed {
             ? `<img id="like" src="images/badge-like.png" alt="">`
             : `<img id="nope" src="images/badge-nope.png" alt="">`
     }
-    getEndmassegeHtml(count) {
-        return `
-            <div class="endMessage">
-                <h2>Yo, You loved ${count}</h2>
-                <picture class="end-logo">
-                    <a href="index.html"> <img src="images/logo.png" alt=""> </a>
-                </picture>
-            </div>
-        `
-    }
+    
     getFeedHtml() {
         const { name, avatar, age, bio } = this
         return `
-            <div class="feed-flex">
-                <img class="feed-img" src="${avatar}" alt="">
-
-                <div class="support-text">
-                    <p class="date">${name}, ${age}</p>
-                    <p class="caption">${bio}</p>
-                </div>
+            <img class="feed-img" src="${avatar}" alt="">
+            <div class="about-dog">
+                <p class="date">${name}, ${age}</p>
+                <p class="caption">${bio}</p>
+            </div>
+        `
+    }
+    getEndmassegeHtml(count) {
+        return `
+            <div class="end-message">
+                <p>Hey you reach the end of dogs in your area</p>
+                <p>You have loved ${count}, Dogs!</p>
+                <a href="index.html"><img src="images/logo.png" alt=""></a>
             </div>
         `
     }

@@ -5,7 +5,7 @@ const likeBtn = document.getElementById('heart')
 const nopeBtn = document.getElementById('cross')
 
 
-let index = 0
+let currentDogIndex = 0
 let status;
 let likeRection = []
 
@@ -13,7 +13,7 @@ let isWaiting = false
 
 // getting new instance of dog! from feed class. 
 function getNewDogs() {
-    return new Feed(dogs[index])
+    return new Feed(dogs[currentDogIndex])
 }
 
 // fucntion swipe to different dog!
@@ -21,12 +21,12 @@ function swipe() {
     if (!isWaiting) {
         renderRection()
         isWaiting = true
-        index++
+        currentDogIndex++
 
         setTimeout(() => {
-            isWaiting = false
             dog = getNewDogs()
             render()
+            isWaiting = false
         }, 500)
     }
 }
@@ -34,7 +34,7 @@ function swipe() {
 //Formatting button clicks 
 function buttonHandler(button, boolean) {
     button.addEventListener("click", (e) => {
-        if (index < dogs.length) {
+        if (currentDogIndex < dogs.length) {
             status = boolean
             swipe()
 
@@ -42,7 +42,9 @@ function buttonHandler(button, boolean) {
                 likeRection.push(e.clientX)
             }
         } else {
-            location.reload(true)
+            setTimeout(()=>{
+                location.reload(true)
+            }, 1000)
         }
     })
 }
@@ -51,7 +53,7 @@ buttonHandler(likeBtn, true)
 buttonHandler(nopeBtn, false)
 
 function renderRection() {
-    let rectionEl = document.querySelector(".rections")
+    let rectionEl = document.querySelector(".reactions")
 
     rectionEl.innerHTML = dog.getRectionHtml(status)
     setTimeout(() => {
@@ -60,9 +62,9 @@ function renderRection() {
 }
 
 function render() {
-    let feedEL = document.querySelector('.feed')
+    let feedEL = document.getElementById("feed")
 
-    return index < dogs.length
+    return currentDogIndex < dogs.length
         ? feedEL.innerHTML = dog.getFeedHtml()
         : feedEL.innerHTML = dog.getEndmassegeHtml(likeRection.length)
 }

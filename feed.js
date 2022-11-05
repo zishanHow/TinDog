@@ -1,32 +1,30 @@
 class Feed {
-    constructor(data){
+    constructor(data) {
         Object.assign(this, data)
     }
 
-    setMatchStatus(bool){
+    /* setMatchStatus(bool){
         this.hasBeenLiked = bool
         this.hasBeenSwiped = true
-    }
+    } */
 
-    getRectionHtml(status){
-        return status 
-        ? `<img id="like" src="images/badge-like.png" alt="">` 
-        : `<img id="nope" src="images/badge-nope.png" alt="">`
+    getRectionHtml(status) {
+        return status
+            ? `<img id="like" src="images/badge-like.png" alt="">`
+            : `<img id="nope" src="images/badge-nope.png" alt="">`
     }
-
-    getEndmassegeHtml(count){
+    getEndmassegeHtml(count) {
         return `
             <div class="endMessage">
-                <h2>Yo, You loved ${count + 1}</h2>
+                <h2>Yo, You loved ${count}</h2>
                 <picture class="">
                     <img src="images/logo.png" alt="">
                 </picture>
             </div>
         `
     }
-
-    getFeedHtml(){
-        const {name, avatar, age, bio } = this
+    getFeedHtml() {
+        const { name, avatar, age, bio } = this
         return `
             <div class="feed-flex">
                 <img class="feed-img" src="${avatar}" alt="">
@@ -39,5 +37,4 @@ class Feed {
         `
     }
 }
-
 export default Feed

@@ -111,8 +111,22 @@ img{
         END Massage
    ===================== */
 
-h2{
+.endMessage {
+    background-color: rgb(68, 179, 68);
+}
+.endMessage h2 {
     text-align: center;
+    padding: 2em 0;
+}
+
+.endMessage picture {
+    display: flex;
+    justify-content: center;
+}
+
+.endMessage picture img{
+    width: 120px;
+    padding-bottom: 2em;
 }
 
 /* ======================

@@ -17,8 +17,8 @@ class Feed {
         return `
             <div class="endMessage">
                 <h2>Yo, You loved ${count}</h2>
-                <picture class="">
-                    <img src="images/logo.png" alt="">
+                <picture class="end-logo">
+                    <a href="index.html"> <img src="images/logo.png" alt=""> </a>
                 </picture>
             </div>
         `

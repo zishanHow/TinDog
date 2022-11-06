@@ -17,11 +17,6 @@ class Feed {
         Object.assign(this, data)
     }
 
-    /* setMatchStatus(bool){
-        this.hasBeenLiked = bool
-        this.hasBeenSwiped = true
-    } */
-
     getRectionHtml(status) {
         return status
             ? `<img id="like" src="images/badge-like.png" alt="">`
@@ -51,10 +46,30 @@ class Feed {
 ```
 
 **new way moveing over array of items**
+```
+let currentDogIndex = 0
+// getting new instance of dog! from feed class. and from the dogs array.
+function getNewDogs() {
+    return new Feed(dogs[currentDogIndex])
+}
+```
 
 **showing a spesefic image if the button is clicked**
+```
+// setting reaction LIKE or DISLIKE the dog.
+function renderRection() {
+    let rectionEl = document.querySelector(".reactions")
+
+    rectionEl.innerHTML = dog.getRectionHtml(status) // status here as a argument
+    setTimeout(() => {
+        rectionEl.innerHTML = ""  // clear the reaction after specific time.
+    }, 500)
+}
+```
 
 **clientX and cliendY**
+*i haven't understand how it fully work*
 
-**Object.assign**
+**Object.assign() _Method_**
+*copies the values (of all enumerable own properties) from one or more **source** objects to a **target** object.*
 

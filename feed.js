@@ -13,7 +13,7 @@ class Feed {
             ? `<img id="like" src="images/badge-like.png" alt="">`
             : `<img id="nope" src="images/badge-nope.png" alt="">`
     }
-    
+
     getFeedHtml() {
         const { name, avatar, age, bio } = this
         return `
@@ -27,8 +27,8 @@ class Feed {
     getEndmassegeHtml(count) {
         return `
             <div class="end-message">
-                <p>Hey you reach the end of dogs in your area</p>
-                <p>You have loved ${count}, Dogs!</p>
+                <p>Hey you reach the end of dogs in your <span>Area</span>😥</p>
+                <p>You have ❤️ ( ${count} ), Dogs!</p>
                 <a href="index.html"><img src="images/logo.png" alt=""></a>
             </div>
         `

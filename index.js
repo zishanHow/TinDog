@@ -1,8 +1,8 @@
 import dogs from './data.js'
 import Feed from './feed.js'
 
-const likeBtn = document.getElementById('heart')
-const nopeBtn = document.getElementById('cross')
+const heartBtn = document.getElementById('heart')
+const crossBtn = document.getElementById('cross')
 
 
 let currentDogIndex = 0
@@ -19,43 +19,45 @@ function getNewDogs() {
 // fucntion swipe to different dog!
 function swipe() {
     if (!isWaiting) {
-        renderRection()
         isWaiting = true
+        renderRection()
         currentDogIndex++
 
         setTimeout(() => {
             dog = getNewDogs()
             render()
             isWaiting = false
-        }, 500)
+        }, 1000)
     }
 }
 
 //Formatting button clicks 
-function buttonHandler(button, boolean) {
+function buttonHandler(button, bool) {
     button.addEventListener("click", (e) => {
         if (currentDogIndex < dogs.length) {
-            status = boolean
+            status = bool
             swipe()
 
-            if (button === likeBtn) {
+            if (button === heartBtn) {
                 likeRection.push(e.clientX)
             }
         } else {
-            setTimeout(()=>{
+            setTimeout(() => {
                 location.reload(true)
             }, 1000)
         }
     })
 }
 
-buttonHandler(likeBtn, true)
-buttonHandler(nopeBtn, false)
+// giving buttonHandler parameter
+buttonHandler(heartBtn, true)
+buttonHandler(crossBtn, false)
 
+// setting reaction LIKE or DISLIKE the dog.
 function renderRection() {
     let rectionEl = document.querySelector(".reactions")
 
-    rectionEl.innerHTML = dog.getRectionHtml(status)
+    rectionEl.innerHTML = dog.getRectionHtml(status) // status here as a argument
     setTimeout(() => {
         rectionEl.innerHTML = ""
     }, 500)

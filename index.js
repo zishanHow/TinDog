@@ -41,11 +41,11 @@ function buttonHandler(button, bool) {
             if (button === heartBtn) {
                 likeRection.push(e.clientX)
             }
-        } else {
+        } /* else {
             setTimeout(() => {
                 location.reload(true)
             }, 1000)
-        }
+        } */
     })
 }
 
